@@ -1,0 +1,749 @@
+/* --- Base & Typography --- */
+:root {
+    --bg-color: #fefefe;
+    --text-color: #2d3748;
+    --main-color: #d4af37;
+    --sub-color: #8b7355;
+    --accent-color: #c17817;
+    --surface-color: #f7fafc;
+    --overlay-color: #e2e8f0;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Noto Sans JP', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--main-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--sub-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Lightbox --- */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.lightbox.show {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+.lightbox.show .lightbox-content {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.lightbox-content img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s ease;
+    z-index: 10000;
+}
+
+.lightbox-close:hover {
+    color: var(--main-color);
+}
+
+.gallery-item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Header --- */
+header {
+    background-color: rgba(254, 254, 254, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--overlay-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--text-color);
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+nav a {
+    font-weight: 400;
+    font-size: 1rem;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--main-color);
+    transition: width 0.4s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* --- Main Content --- */
+main {
+    padding-top: 100px; /* header height */
+}
+
+.content-section {
+    padding: 6rem 0;
+}
+
+h2 {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+h2 .section-title {
+    display: block;
+}
+
+h2 .section-subtitle {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--sub-color);
+    margin-top: 0.5rem;
+    letter-spacing: 2px;
+}
+
+/* --- Hero Section --- */
+#hero {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--bg-color);
+    padding: 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('image/01.FV/restaurant_course.png') no-repeat center center/cover;
+    opacity: 0;
+    transform: scale(1.1);
+    animation: fadeInWithScale 3s ease-out 0.2s forwards, slideShow1 15s ease-in-out 3s infinite;
+}
+
+#hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('image/01.FV/french_toast.png') no-repeat center center/cover;
+    opacity: 0;
+    transform: scale(1.1);
+    animation: slideShow2 15s ease-in-out 8s infinite;
+}
+
+#hero .slide3 {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('image/01.FV/bakery_sweets.png') no-repeat center center/cover;
+    opacity: 0;
+    transform: scale(1.1);
+    animation: slideShow3 15s ease-in-out 13s infinite;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInSlideUp 1.5s ease-out 1s forwards;
+}
+
+#hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+#hero p {
+    font-size: 1.1rem;
+    color: var(--sub-color);
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* アニメーション定義 */
+@keyframes fadeInWithScale {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideShow1 {
+    0%, 30% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    30%, 33% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    33%, 100% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes slideShow2 {
+    0%, 30% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    30%, 33% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    33%, 63% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    63%, 66% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    66%, 100% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes slideShow3 {
+    0%, 63% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    63%, 66% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    66%, 97% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    97%, 100% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- About Section --- */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.about-text h3 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: var(--sub-color);
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* --- Menu Section --- */
+#menu {
+    background-color: var(--surface-color);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.menu-card {
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 2rem;
+    border: 1px solid var(--overlay-color);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.menu-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 1rem 0 0.5rem 0;
+    padding: 0 2rem;
+    color: var(--main-color);
+    line-height: 1.3;
+}
+
+.menu-item {
+    padding: 0.5rem 2rem 2rem 2rem;
+    text-align: left;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item h4 {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.menu-item .price {
+    font-weight: 600;
+    color: var(--accent-color);
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.menu-item p {
+    font-size: 0.9rem;
+    color: var(--sub-color);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- Gallery Section --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* --- Access Section --- */
+.access-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.access-map iframe {
+    width: 100%;
+    height: 450px;
+    border-radius: 8px;
+    filter: grayscale(1) invert(0.9);
+}
+
+.access-info dl {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1rem;
+}
+
+.access-info dt {
+    font-weight: 500;
+    color: var(--sub-color);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--surface-color);
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 4rem;
+}
+
+/* ===============================
+   🌟 動的モーション用スタイル
+   =============================== */
+
+/* 💫 カスタムカーソル */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--main-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+    transition: all 0.1s ease;
+    backdrop-filter: blur(5px);
+    mix-blend-mode: difference;
+}
+
+.custom-cursor.hover {
+    width: 40px;
+    height: 40px;
+    background: rgba(212, 175, 55, 0.2);
+    border-width: 1px;
+}
+
+/* ✨ スクロールアニメーション */
+.fade-in, .slide-up, .scale-in {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in {
+    transform: translateY(30px);
+}
+
+.slide-up {
+    transform: translateY(50px);
+}
+
+.scale-in {
+    transform: scale(0.8);
+}
+
+.fade-in.animate-in, .slide-up.animate-in, .scale-in.animate-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* 🌟 キラキラ効果 */
+.sparkle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--main-color);
+    border-radius: 50%;
+    animation: sparkleFloat 3s linear infinite;
+    box-shadow: 0 0 6px var(--main-color);
+}
+
+@keyframes sparkleFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(-100px) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-120px) scale(0);
+    }
+}
+
+/* 🎊 クリックリップル効果 */
+.click-ripple {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--main-color) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 9999;
+    animation: rippleExpand 0.6s ease-out;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes rippleExpand {
+    to {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
+
+/* 📱 ヘッダー隠れる効果 */
+header.header-hidden {
+    transform: translateY(-100%);
+}
+
+/* 🌸 フローティング要素 */
+.float {
+    animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* 🎨 タイピング効果 */
+.typing-effect {
+    opacity: 0;
+    border-right: 2px solid var(--main-color);
+    animation: blinkCursor 1s infinite;
+}
+
+@keyframes blinkCursor {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* 🌈 カラーウェーブ (CSS変数で動的制御) */
+:root {
+    --accent-wave: var(--main-color);
+}
+
+.color-wave {
+    background: linear-gradient(45deg, var(--main-color), var(--accent-wave));
+    animation: waveMove 3s ease-in-out infinite;
+}
+
+@keyframes waveMove {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* 🎭 パララックス効果 */
+.parallax {
+    will-change: transform;
+}
+
+/* 🌟 ギャラリーアイテムの追加効果 */
+.gallery-item {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    z-index: 10;
+}
+
+/* 🎀 メニューカードの追加効果 */
+.menu-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 💖 ボタンホバー効果 */
+a, button {
+    position: relative;
+    overflow: hidden;
+}
+
+a::before, button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%);
+}
+
+a:hover::before, button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* 🎪 スクロールバーカスタマイズ */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--surface-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
