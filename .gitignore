@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ログファイル
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 一時ファイル
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# IDEファイル
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# バックアップファイル
+*.bak
+*.backup
