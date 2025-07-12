@@ -845,15 +845,13 @@ a:hover::before, button:hover::before {
     }
     
     .logo {
-        font-size: 1.4rem;
-        flex: 1;
+        display: none;
     }
     
     .hamburger {
-        position: absolute;
-        right: 1rem;
-        top: 50%;
-        transform: translateY(-50%);
+        position: static;
+        transform: none;
+        margin-left: auto;
     }
     
     /* Hero セクション */
