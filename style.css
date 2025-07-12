@@ -787,6 +787,11 @@ a:hover::before, button:hover::before {
 
 /* タブレット対応 (768px以下) */
 @media (max-width: 768px) {
+    /* デスクトップナビを非表示 */
+    nav ul {
+        display: none;
+    }
+    
     /* ハンバーガーメニュー表示 */
     .hamburger {
         display: flex;
@@ -833,10 +838,22 @@ a:hover::before, button:hover::before {
     /* ヘッダー調整 */
     header .container {
         padding: 0 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
     }
     
     .logo {
         font-size: 1.4rem;
+        flex: 1;
+    }
+    
+    .hamburger {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
     }
     
     /* Hero セクション */
