@@ -184,8 +184,10 @@ document.addEventListener('DOMContentLoaded', function() {
         initColorWave();
     }, 1000);
 
-    // 📱 ハンバーガーメニュー初期化
-    initHamburgerMenu();
+    // 📱 ハンバーガーメニュー初期化（遅延実行）
+    setTimeout(() => {
+        initHamburgerMenu();
+    }, 100);
     
     console.log('✨ Le Ciel étoilé Café - 動的モーション初期化完了！ ✨');
 });
@@ -196,7 +198,12 @@ function initHamburgerMenu() {
     const nav = document.getElementById('nav');
     const navLinks = document.querySelectorAll('.nav a');
     
-    if (!hamburger || !nav) return;
+    console.log('ハンバーガーメニュー初期化:', { hamburger, nav, navLinks: navLinks.length });
+    
+    if (!hamburger || !nav) {
+        console.error('ハンバーガーメニュー要素が見つかりません:', { hamburger, nav });
+        return;
+    }
     
     // ハンバーガーボタンクリック
     hamburger.addEventListener('click', function(e) {
