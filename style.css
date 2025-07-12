@@ -172,6 +172,39 @@ nav a:hover::after {
     width: 100%;
 }
 
+/* --- ハンバーガーメニュー --- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    position: relative;
+    z-index: 1001;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
 /* --- Main Content --- */
 main {
     padding-top: 100px; /* header height */
@@ -746,4 +779,226 @@ a:hover::before, button:hover::before {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent-color);
+}
+
+/* ===============================
+   📱 モバイル・レスポンシブ対応
+   =============================== */
+
+/* タブレット対応 (768px以下) */
+@media (max-width: 768px) {
+    /* ハンバーガーメニュー表示 */
+    .hamburger {
+        display: flex;
+    }
+    
+    /* ナビゲーション */
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: rgba(254, 254, 254, 0.98);
+        backdrop-filter: blur(20px);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        padding-top: 100px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav.active {
+        right: 0;
+    }
+    
+    .nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 2rem;
+    }
+    
+    .nav li {
+        width: 100%;
+        border-bottom: 1px solid var(--overlay-color);
+    }
+    
+    .nav a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1.1rem;
+        color: var(--text-color);
+    }
+    
+    /* ヘッダー調整 */
+    header .container {
+        padding: 0 1rem;
+    }
+    
+    .logo {
+        font-size: 1.4rem;
+    }
+    
+    /* Hero セクション */
+    #hero {
+        height: 60vh;
+        padding: 0 1rem;
+    }
+    
+    #hero h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+        line-height: 1.3;
+    }
+    
+    /* About セクション */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    /* Menu セクション */
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Gallery セクション */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    /* Access セクション */
+    .access-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .access-map iframe {
+        height: 300px;
+    }
+    
+    .access-info dl {
+        grid-template-columns: 80px 1fr;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    /* コンテナ調整 */
+    .container {
+        width: 95%;
+    }
+    
+    .content-section {
+        padding: 4rem 0;
+    }
+    
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    h2 .section-subtitle {
+        font-size: 0.9rem;
+    }
+}
+
+/* スマートフォン対応 (480px以下) */
+@media (max-width: 480px) {
+    /* ヘッダー */
+    header {
+        padding: 1rem 0;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
+    
+    /* Hero */
+    #hero {
+        height: 50vh;
+    }
+    
+    #hero h1 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+    }
+    
+    /* ナビゲーション */
+    .nav {
+        width: 90%;
+    }
+    
+    /* セクション */
+    .content-section {
+        padding: 3rem 0;
+    }
+    
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* About */
+    .about-text h3 {
+        font-size: 1.5rem;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    
+    /* Menu */
+    .menu-card h3 {
+        font-size: 1.3rem;
+        padding: 0 1rem;
+    }
+    
+    .menu-item {
+        padding: 0.5rem 1rem 1.5rem 1rem;
+    }
+    
+    /* Gallery */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    /* Access */
+    .access-map iframe {
+        height: 250px;
+    }
+    
+    .access-info dl {
+        grid-template-columns: 70px 1fr;
+        gap: 0.3rem;
+        font-size: 0.85rem;
+    }
+    
+    /* その他の調整 */
+    .container {
+        width: 92%;
+    }
+    
+    /* カスタムカーソルをモバイルで無効化 */
+    .custom-cursor {
+        display: none;
+    }
+    
+    /* フローティング効果をモバイルで軽減 */
+    .float {
+        animation: none;
+    }
+    
+    /* タッチ用に要素を大きく */
+    nav a {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .menu-card, .gallery-item {
+        cursor: default;
+    }
 }

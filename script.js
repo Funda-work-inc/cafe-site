@@ -184,8 +184,72 @@ document.addEventListener('DOMContentLoaded', function() {
         initColorWave();
     }, 1000);
 
+    // 📱 ハンバーガーメニュー初期化
+    initHamburgerMenu();
+    
     console.log('✨ Le Ciel étoilé Café - 動的モーション初期化完了！ ✨');
 });
+
+// 📱 ハンバーガーメニュー機能
+function initHamburgerMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    const navLinks = document.querySelectorAll('.nav a');
+    
+    if (!hamburger || !nav) return;
+    
+    // ハンバーガーボタンクリック
+    hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMenu();
+    });
+    
+    // ナビリンククリック時にメニューを閉じる
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeMenu();
+        });
+    });
+    
+    // 背景クリック時にメニューを閉じる
+    document.addEventListener('click', function(e) {
+        if (nav.classList.contains('active') && !nav.contains(e.target)) {
+            closeMenu();
+        }
+    });
+    
+    // ESCキー時にメニューを閉じる
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && nav.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+    
+    // ウィンドウリサイズ時の処理
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && nav.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+    
+    function toggleMenu() {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+        
+        // ボディのスクロール制御
+        if (nav.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    }
+    
+    function closeMenu() {
+        hamburger.classList.remove('active');
+        nav.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
 
 // 🖼️ ライトボックス機能
 function openLightbox(imageSrc) {
