@@ -257,7 +257,7 @@ h2 .section-subtitle {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('image/01.FV/restaurant_course.png') no-repeat center center/cover;
+    background: url('./image/01.FV/restaurant_course.png') no-repeat center center/cover;
     opacity: 0;
     transform: scale(1.1);
     animation: fadeInWithScale 3s ease-out 0.2s forwards, slideShow1 15s ease-in-out 3s infinite;
@@ -270,7 +270,7 @@ h2 .section-subtitle {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('image/01.FV/french_toast.png') no-repeat center center/cover;
+    background: url('./image/01.FV/french_toast.png') no-repeat center center/cover;
     opacity: 0;
     transform: scale(1.1);
     animation: slideShow2 15s ease-in-out 8s infinite;
@@ -283,7 +283,7 @@ h2 .section-subtitle {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('image/01.FV/bakery_sweets.png') no-repeat center center/cover;
+    background: url('./image/01.FV/bakery_sweets.png') no-repeat center center/cover;
     opacity: 0;
     transform: scale(1.1);
     animation: slideShow3 15s ease-in-out 13s infinite;
