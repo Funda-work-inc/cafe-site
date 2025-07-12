@@ -787,14 +787,26 @@ a:hover::before, button:hover::before {
 
 /* タブレット対応 (768px以下) */
 @media (max-width: 768px) {
-    /* デスクトップナビを非表示 */
-    nav ul {
+    /* ヘッダーを非表示 */
+    header {
         display: none;
     }
     
-    /* ハンバーガーメニュー表示 */
+    /* ハンバーガーメニューをフローティング表示 */
     .hamburger {
         display: flex;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(10px);
     }
     
     /* ナビゲーション */
@@ -835,23 +847,10 @@ a:hover::before, button:hover::before {
         color: var(--text-color);
     }
     
-    /* ヘッダー調整 */
-    header .container {
-        padding: 0 1rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-    }
     
-    .logo {
-        display: none;
-    }
-    
-    .hamburger {
-        position: static;
-        transform: none;
-        margin-left: auto;
+    /* メインコンテンツのパディング調整 */
+    main {
+        padding-top: 0;
     }
     
     /* Hero セクション */
