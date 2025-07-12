@@ -194,7 +194,7 @@ nav a:hover::after {
 }
 
 .hamburger.active .hamburger-line:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
+    transform: rotate(45deg) translate(5px, 5px);
 }
 
 .hamburger.active .hamburger-line:nth-child(2) {
@@ -202,7 +202,7 @@ nav a:hover::after {
 }
 
 .hamburger.active .hamburger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* --- Main Content --- */
@@ -787,9 +787,14 @@ a:hover::before, button:hover::before {
 
 /* タブレット対応 (768px以下) */
 @media (max-width: 768px) {
-    /* デスクトップナビを非表示 */
-    nav ul {
+    /* デスクトップナビを非表示（ハンバーガーメニュー内は表示） */
+    header nav ul {
         display: none;
+    }
+    
+    /* ハンバーガーメニュー内のナビは表示 */
+    .nav ul {
+        display: flex;
     }
     
     /* ハンバーガーメニュー表示 */
