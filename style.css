@@ -282,7 +282,7 @@ h2 .section-subtitle {
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/restaurant_course.png') no-repeat center center/cover;
     opacity: 1;
-    animation: simpleSlideshow 12s ease-in-out infinite;
+    animation: slideshow1 12s ease-in-out infinite;
     will-change: transform;
     transform-origin: center center;
     transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
@@ -297,7 +297,7 @@ h2 .section-subtitle {
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/french_toast.png') no-repeat center center/cover;
     opacity: 0;
-    animation: simpleSlideshow 12s ease-in-out 4s infinite;
+    animation: slideshow2 12s ease-in-out infinite;
     will-change: transform;
     transform-origin: center center;
     transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
@@ -312,7 +312,7 @@ h2 .section-subtitle {
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/bakery_sweets.png') no-repeat center center/cover;
     opacity: 0;
-    animation: simpleSlideshow 12s ease-in-out 8s infinite;
+    animation: slideshow3 12s ease-in-out infinite;
     will-change: transform;
     transform-origin: center center;
     transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
@@ -393,15 +393,48 @@ h2 .section-subtitle {
     }
 }
 
-/* シンプルなスライドショーアニメーション */
-@keyframes simpleSlideshow {
-    0%, 31% {
+/* クロスフェードスライドショーアニメーション */
+@keyframes slideshow1 {
+    0%, 29% {
         opacity: 1;
     }
-    33%, 64% {
+    29%, 33% {
+        opacity: 0;
+    }
+    33%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slideshow2 {
+    0%, 29% {
+        opacity: 0;
+    }
+    29%, 33% {
+        opacity: 1;
+    }
+    33%, 62% {
+        opacity: 1;
+    }
+    62%, 66% {
         opacity: 0;
     }
     66%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slideshow3 {
+    0%, 62% {
+        opacity: 0;
+    }
+    62%, 66% {
+        opacity: 1;
+    }
+    66%, 96% {
+        opacity: 1;
+    }
+    96%, 100% {
         opacity: 0;
     }
 }
