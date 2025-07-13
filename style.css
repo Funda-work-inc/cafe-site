@@ -138,34 +138,78 @@ header .container {
 
 /* ロゴ関連のスタイルは削除（ヘッダーから除去したため） */
 
-/* デスクトップでは非表示（ハンバーガーメニューのみ） */
-nav ul {
+/* ナビゲーションパネル（デスクトップでも動作） */
+.nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: rgba(254, 254, 254, 0.98);
+    backdrop-filter: blur(20px);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    padding-top: 80px;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
+}
+
+.nav.active {
+    right: 0;
+}
+
+.nav ul {
     list-style: none;
-    display: none;
-    gap: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 2rem;
 }
 
-nav a {
+.nav li {
+    width: 100%;
+    border-bottom: 1px solid var(--overlay-color);
+    transition: background-color 0.2s ease;
+}
+
+.nav li:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+}
+
+.nav a {
+    display: block;
+    padding: 1.2rem 0;
+    font-size: 1.1rem;
     font-weight: 400;
-    font-size: 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
     position: relative;
-    padding-bottom: 5px;
 }
 
-nav a::after {
+.nav a:hover {
+    color: var(--main-color);
+    transform: translateX(5px);
+}
+
+.nav a::before {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 1px;
+    left: -1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 0;
     background-color: var(--main-color);
-    transition: width 0.4s ease;
+    transition: height 0.3s ease;
 }
 
-nav a:hover::after {
-    width: 100%;
+.nav a:hover::before {
+    height: 60%;
 }
+
+/* 古いnavスタイルは削除（.nav内で再定義済み） */
 
 /* --- ハンバーガーメニュー --- */
 .hamburger {
@@ -974,83 +1018,7 @@ a:hover::before, button:hover::before {
         max-width: 100%;
     }
     
-    /* ハンバーガーメニュー内のナビ設定 */
-    .nav ul {
-        display: flex !important;
-        flex-direction: column;
-        gap: 0;
-        padding: 2rem 1.5rem;
-        list-style: none;
-    }
-    
-    /* ナビゲーションパネル */
-    .nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 85%;
-        max-width: 320px;
-        height: 100vh;
-        background-color: rgba(254, 254, 254, 0.98);
-        backdrop-filter: blur(20px);
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 999;
-        padding-top: 80px;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
-        overflow-y: auto;
-    }
-    
-    .nav.active {
-        right: 0;
-    }
-    
-    .nav ul {
-        flex-direction: column;
-        gap: 0;
-        padding: 2rem;
-    }
-    
-    .nav li {
-        width: 100%;
-        border-bottom: 1px solid var(--overlay-color);
-        transition: background-color 0.2s ease;
-    }
-    
-    .nav li:hover {
-        background-color: rgba(212, 175, 55, 0.1);
-    }
-    
-    .nav a {
-        display: block;
-        padding: 1.2rem 0;
-        font-size: 1.1rem;
-        font-weight: 400;
-        color: var(--text-color);
-        text-decoration: none;
-        transition: all 0.3s ease;
-        position: relative;
-    }
-    
-    .nav a:hover {
-        color: var(--main-color);
-        transform: translateX(5px);
-    }
-    
-    .nav a::before {
-        content: '';
-        position: absolute;
-        left: -1.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 4px;
-        height: 0;
-        background-color: var(--main-color);
-        transition: height 0.3s ease;
-    }
-    
-    .nav a:hover::before {
-        height: 60%;
-    }
+    /* モバイル用の追加設定（必要に応じて） */
     
     
     
