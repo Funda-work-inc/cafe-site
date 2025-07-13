@@ -126,22 +126,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     }
 
-    // 📱 レスポンシブメニュー
+    // 📱 レスポンシブメニュー（ヘッダー非表示機能を無効化）
     function initMobileMenu() {
-        const header = document.querySelector('header');
-        let lastScrollTop = 0;
-        
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset;
-            
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                header.classList.add('header-hidden');
-            } else {
-                header.classList.remove('header-hidden');
-            }
-            
-            lastScrollTop = scrollTop;
-        });
+        // ヘッダーを常時表示するため、スクロール時の非表示機能は無効化
+        console.log('ヘッダー常時表示モード');
     }
 
     // 🎪 ギャラリーホバー効果

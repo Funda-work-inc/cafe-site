@@ -203,7 +203,7 @@ nav a:hover::after {
 
 /* --- Main Content --- */
 main {
-    padding-top: 100px; /* header height */
+    padding-top: 0; /* ヘッダー分のパディングを除去 */
 }
 
 .content-section {
@@ -774,9 +774,9 @@ footer {
     }
 }
 
-/* 📱 ヘッダー隠れる効果 */
+/* 📱 ヘッダー隠れる効果を無効化（常時表示） */
 header.header-hidden {
-    transform: translateY(-100%);
+    transform: translateY(0);
 }
 
 /* 🌸 フローティング要素 */
