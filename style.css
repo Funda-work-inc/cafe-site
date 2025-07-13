@@ -278,7 +278,7 @@ h2 .section-subtitle {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/restaurant_course.png') no-repeat center center/cover;
     opacity: 0;
     transform: scale(1.1);
-    animation: fadeInWithScale 2s ease-out 0.5s forwards, slideShow1 18s ease-in-out 2s infinite;
+    animation: fadeInWithScale 1.5s ease-out 0.3s forwards, slideShow1 9s ease-in-out 1.5s infinite;
 }
 
 #hero::after {
@@ -291,7 +291,7 @@ h2 .section-subtitle {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/french_toast.png') no-repeat center center/cover;
     opacity: 0;
     transform: scale(1.1);
-    animation: slideShow2 18s ease-in-out 8s infinite;
+    animation: slideShow2 9s ease-in-out 4.5s infinite;
 }
 
 #hero .slide3 {
@@ -304,7 +304,7 @@ h2 .section-subtitle {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/bakery_sweets.png') no-repeat center center/cover;
     opacity: 0;
     transform: scale(1.1);
-    animation: slideShow3 18s ease-in-out 14s infinite;
+    animation: slideShow3 9s ease-in-out 7.5s infinite;
 }
 
 .hero-text {
@@ -347,57 +347,57 @@ h2 .section-subtitle {
 }
 
 @keyframes slideShow1 {
-    0%, 28% {
+    0%, 30% {
         opacity: 1;
         transform: scale(1);
     }
-    28%, 38% {
+    30%, 40% {
         opacity: 0;
         transform: scale(1.05);
     }
-    38%, 100% {
+    40%, 100% {
         opacity: 0;
         transform: scale(1.05);
     }
 }
 
 @keyframes slideShow2 {
-    0%, 28% {
+    0%, 30% {
         opacity: 0;
         transform: scale(1.05);
     }
-    28%, 38% {
+    30%, 40% {
         opacity: 1;
         transform: scale(1);
     }
-    38%, 61% {
+    40%, 63% {
         opacity: 1;
         transform: scale(1);
     }
-    61%, 72% {
+    63%, 73% {
         opacity: 0;
         transform: scale(1.05);
     }
-    72%, 100% {
+    73%, 100% {
         opacity: 0;
         transform: scale(1.05);
     }
 }
 
 @keyframes slideShow3 {
-    0%, 61% {
+    0%, 63% {
         opacity: 0;
         transform: scale(1.05);
     }
-    61%, 72% {
+    63%, 73% {
         opacity: 1;
         transform: scale(1);
     }
-    72%, 94% {
+    73%, 97% {
         opacity: 1;
         transform: scale(1);
     }
-    94%, 100% {
+    97%, 100% {
         opacity: 0;
         transform: scale(1.05);
     }
