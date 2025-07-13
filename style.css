@@ -325,7 +325,7 @@ h2 .section-subtitle {
 }
 
 .hero-text .hero-subtitle {
-    animation: luxuryFadeIn 2s ease-out 1s forwards;
+    animation: simpleFadeIn 2s ease-out 1s forwards;
 }
 
 /* ローディング状態のテキスト */
@@ -359,7 +359,7 @@ h2 .section-subtitle {
     font-weight: 300;
     color: rgba(255, 255, 255, 0.9);
     margin: 1rem auto 0;
-    letter-spacing: 8px;
+    letter-spacing: 2px;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
     opacity: 0;
 }
@@ -368,7 +368,7 @@ h2 .section-subtitle {
 #hero .hero-subtitle {
     color: #666666;
     text-shadow: none;
-    letter-spacing: 8px;
+    letter-spacing: 2px;
     transition: all 2s ease-in-out;
 }
 
@@ -514,6 +514,20 @@ h2 .section-subtitle {
     100% {
         opacity: 1;
         letter-spacing: 1px;
+        transform: translateY(0);
+    }
+}
+
+@keyframes simpleFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    70% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
         transform: translateY(0);
     }
 }
