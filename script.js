@@ -357,25 +357,21 @@ function initScrollIndicator() {
 // 🎯 ヒーローセクションパララックス効果
 function initHeroParallax() {
     const heroSection = document.querySelector('#hero');
-    const heroImages = [
-        heroSection.querySelector('::before'),
-        heroSection.querySelector('::after'),
-        heroSection.querySelector('.slide3')
-    ];
     
     let ticking = false;
     
     function updateParallax() {
         const scrollTop = window.pageYOffset;
         const heroHeight = heroSection.offsetHeight;
-        const scrollPercent = Math.min(scrollTop / heroHeight, 0.8); // 上限を0.8に設定
+        const scrollPercent = Math.min(scrollTop / heroHeight, 0.4); // 上限を0.4に設定（半分に縮小）
         
-        // スクロール量に応じて拡大と移動（適度な範囲で止める）
-        const scale = 1 + Math.min(scrollPercent * 0.15, 0.08); // 最大1.08倍で停止
-        const translateY = Math.min(scrollPercent * 25, 20); // 最大20px下移動で停止
+        // スクロール量に応じて背景画像のみ拡大と移動
+        const scale = 1 + Math.min(scrollPercent * 0.1, 0.04); // 最大1.04倍で停止（半分に縮小）
+        const translateY = Math.min(scrollPercent * 15, 10); // 最大10px下移動（半分に縮小）
         
-        // ヒーローセクション全体に適用
-        heroSection.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+        // 背景画像要素のみに適用（疑似要素）
+        heroSection.style.setProperty('--parallax-scale', scale);
+        heroSection.style.setProperty('--parallax-translate', `${translateY}px`);
         
         ticking = false;
     }

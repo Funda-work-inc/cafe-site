@@ -268,6 +268,11 @@ h2 .section-subtitle {
     overflow: hidden;
 }
 
+#hero {
+    --parallax-scale: 1;
+    --parallax-translate: 0px;
+}
+
 #hero::before {
     content: '';
     position: absolute;
@@ -280,6 +285,7 @@ h2 .section-subtitle {
     animation: simpleSlideshow 15s ease-in-out infinite;
     will-change: transform;
     transform-origin: center center;
+    transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
 }
 
 #hero::after {
@@ -294,6 +300,7 @@ h2 .section-subtitle {
     animation: simpleSlideshow 15s ease-in-out 5s infinite;
     will-change: transform;
     transform-origin: center center;
+    transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
 }
 
 #hero .slide3 {
@@ -308,6 +315,7 @@ h2 .section-subtitle {
     animation: simpleSlideshow 15s ease-in-out 10s infinite;
     will-change: transform;
     transform-origin: center center;
+    transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
 }
 
 .hero-text {
