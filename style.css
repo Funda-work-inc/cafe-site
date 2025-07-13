@@ -278,6 +278,8 @@ h2 .section-subtitle {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/restaurant_course.png') no-repeat center center/cover;
     opacity: 1;
     animation: simpleSlideshow 15s ease-in-out infinite;
+    will-change: transform;
+    transform-origin: center center;
 }
 
 #hero::after {
@@ -290,6 +292,8 @@ h2 .section-subtitle {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/french_toast.png') no-repeat center center/cover;
     opacity: 0;
     animation: simpleSlideshow 15s ease-in-out 5s infinite;
+    will-change: transform;
+    transform-origin: center center;
 }
 
 #hero .slide3 {
@@ -302,6 +306,8 @@ h2 .section-subtitle {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/bakery_sweets.png') no-repeat center center/cover;
     opacity: 0;
     animation: simpleSlideshow 15s ease-in-out 10s infinite;
+    will-change: transform;
+    transform-origin: center center;
 }
 
 .hero-text {

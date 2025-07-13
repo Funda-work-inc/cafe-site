@@ -188,6 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         initHamburgerMenu();
         initScrollIndicator();
+        initHeroParallax();
     }, 100);
     
     console.log('✨ Le Ciel étoilé Café - 動的モーション初期化完了！ ✨');
@@ -351,6 +352,45 @@ function initScrollIndicator() {
     } else {
         console.log('⚠️ スクロールインジケーターが見つかりません');
     }
+}
+
+// 🎯 ヒーローセクションパララックス効果
+function initHeroParallax() {
+    const heroSection = document.querySelector('#hero');
+    const heroImages = [
+        heroSection.querySelector('::before'),
+        heroSection.querySelector('::after'),
+        heroSection.querySelector('.slide3')
+    ];
+    
+    let ticking = false;
+    
+    function updateParallax() {
+        const scrollTop = window.pageYOffset;
+        const heroHeight = heroSection.offsetHeight;
+        const scrollPercent = scrollTop / heroHeight;
+        
+        // スクロール量に応じて拡大と移動
+        if (scrollPercent <= 1.2) {
+            const scale = 1 + (scrollPercent * 0.1); // 最大1.12倍まで拡大
+            const translateY = scrollPercent * 30; // 30px下に移動
+            
+            // ヒーローセクション全体に適用
+            heroSection.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+        }
+        
+        ticking = false;
+    }
+    
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }
+    
+    window.addEventListener('scroll', requestTick);
+    console.log('🎯 ヒーローパララックス効果初期化完了');
 }
 
 // 🎨 追加のインタラクション効果
