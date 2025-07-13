@@ -368,16 +368,14 @@ function initHeroParallax() {
     function updateParallax() {
         const scrollTop = window.pageYOffset;
         const heroHeight = heroSection.offsetHeight;
-        const scrollPercent = scrollTop / heroHeight;
+        const scrollPercent = Math.min(scrollTop / heroHeight, 0.8); // 上限を0.8に設定
         
-        // スクロール量に応じて拡大と移動
-        if (scrollPercent <= 1.2) {
-            const scale = 1 + (scrollPercent * 0.1); // 最大1.12倍まで拡大
-            const translateY = scrollPercent * 30; // 30px下に移動
-            
-            // ヒーローセクション全体に適用
-            heroSection.style.transform = `scale(${scale}) translateY(${translateY}px)`;
-        }
+        // スクロール量に応じて拡大と移動（適度な範囲で止める）
+        const scale = 1 + Math.min(scrollPercent * 0.15, 0.08); // 最大1.08倍で停止
+        const translateY = Math.min(scrollPercent * 25, 20); // 最大20px下移動で停止
+        
+        // ヒーローセクション全体に適用
+        heroSection.style.transform = `scale(${scale}) translateY(${translateY}px)`;
         
         ticking = false;
     }
