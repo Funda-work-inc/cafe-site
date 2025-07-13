@@ -426,7 +426,7 @@ h2 .section-subtitle {
     }
 }
 
-/* 4枚クロスフェードスライドショーアニメーション */
+/* 4枚完全クロスフェードスライドショーアニメーション */
 @keyframes slideshow1 {
     0%, 22% {
         opacity: 1;
@@ -434,8 +434,11 @@ h2 .section-subtitle {
     22%, 25% {
         opacity: 0;
     }
-    25%, 100% {
+    25%, 97% {
         opacity: 0;
+    }
+    97%, 100% {
+        opacity: 1;
     }
 }
 
