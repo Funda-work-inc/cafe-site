@@ -355,16 +355,17 @@ h2 .section-subtitle {
     font-weight: 300;
     color: rgba(255, 255, 255, 0.9);
     margin: 1rem auto 0;
-    letter-spacing: 2px;
+    letter-spacing: 8px;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
     opacity: 0;
-    animation: luxuryFadeIn 2s ease-out 1.5s forwards;
+    animation: luxuryFadeIn 2s ease-out 1s forwards;
 }
 
 /* ローディング状態のサブタイトル */
 #hero .hero-subtitle {
     color: #666666;
     text-shadow: none;
+    letter-spacing: 8px;
     transition: all 2s ease-in-out;
 }
 
