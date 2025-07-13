@@ -262,10 +262,11 @@ h2 .section-subtitle {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: var(--bg-color);
+    background: #ffffff;
     padding: 0 2rem;
     position: relative;
     overflow: hidden;
+    transition: background-color 0.5s ease;
 }
 
 #hero {
@@ -281,11 +282,12 @@ h2 .section-subtitle {
     right: 0;
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/restaurant_course.png') no-repeat center center/cover;
-    opacity: 1;
-    animation: slideshow1 16s ease-in-out infinite;
+    opacity: 0;
+    animation: slideshow1 16s ease-in-out 1.5s infinite;
     will-change: transform;
     transform-origin: center center;
     transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
+    transition: opacity 1s ease-in-out;
 }
 
 #hero::after {
@@ -297,10 +299,11 @@ h2 .section-subtitle {
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/french_toast.png') no-repeat center center/cover;
     opacity: 0;
-    animation: slideshow2 16s ease-in-out infinite;
+    animation: slideshow2 16s ease-in-out 1.5s infinite;
     will-change: transform;
     transform-origin: center center;
     transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
+    transition: opacity 1s ease-in-out;
 }
 
 #hero .slide3 {
@@ -312,10 +315,11 @@ h2 .section-subtitle {
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/bakery_sweets.png') no-repeat center center/cover;
     opacity: 0;
-    animation: slideshow3 16s ease-in-out infinite;
+    animation: slideshow3 16s ease-in-out 1.5s infinite;
     will-change: transform;
     transform-origin: center center;
     transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
+    transition: opacity 1s ease-in-out;
 }
 
 #hero .slide4 {
@@ -327,10 +331,11 @@ h2 .section-subtitle {
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/02.about-us/about-us.png') no-repeat center center/cover;
     opacity: 0;
-    animation: slideshow4 16s ease-in-out infinite;
+    animation: slideshow4 16s ease-in-out 1.5s infinite;
     will-change: transform;
     transform-origin: center center;
     transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
+    transition: opacity 1s ease-in-out;
 }
 
 .hero-text {
@@ -341,15 +346,28 @@ h2 .section-subtitle {
     animation: fadeInSlideUp 1.5s ease-out 1s forwards;
 }
 
+/* ローディング状態のテキスト */
 #hero h1 {
     font-family: var(--font-serif);
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 500;
-    color: #ffffff;
+    color: #000000;
     margin-bottom: 1rem;
     line-height: 1.4;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    text-shadow: none;
     letter-spacing: 1px;
+    transition: all 1s ease-in-out;
+}
+
+/* ロード完了後のテキスト */
+#hero.loaded h1 {
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* ロード完了後の背景画像表示 */
+#hero.loaded::before {
+    opacity: 1;
 }
 
 #hero p {

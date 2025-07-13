@@ -189,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initHamburgerMenu();
         initScrollIndicator();
         initHeroParallax();
+        initLoadingReveal();
     }, 100);
     
     console.log('✨ Le Ciel étoilé Café - 動的モーション初期化完了！ ✨');
@@ -385,6 +386,19 @@ function initHeroParallax() {
     
     window.addEventListener('scroll', requestTick);
     console.log('🎯 ヒーローパララックス効果初期化完了');
+}
+
+// ✨ ローディングリビール効果
+function initLoadingReveal() {
+    const heroSection = document.querySelector('#hero');
+    
+    // 1.5秒後にロード完了状態に切り替え
+    setTimeout(() => {
+        heroSection.classList.add('loaded');
+        console.log('🎨 ローディングリビール効果実行完了');
+    }, 1500);
+    
+    console.log('✨ ローディングリビール効果初期化完了');
 }
 
 // 🎨 追加のインタラクション効果
