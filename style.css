@@ -283,11 +283,11 @@ h2 .section-subtitle {
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/restaurant_course.png') no-repeat center center/cover;
     opacity: 0;
-    animation: slideshow1 16s ease-in-out 1.5s infinite;
+    animation: slideshow1 16s ease-in-out 4.5s infinite;
     will-change: transform;
     transform-origin: center center;
     transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
-    transition: opacity 1s ease-in-out;
+    transition: opacity 2s ease-in-out;
 }
 
 #hero::after {
@@ -299,11 +299,11 @@ h2 .section-subtitle {
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/french_toast.png') no-repeat center center/cover;
     opacity: 0;
-    animation: slideshow2 16s ease-in-out 1.5s infinite;
+    animation: slideshow2 16s ease-in-out 4.5s infinite;
     will-change: transform;
     transform-origin: center center;
     transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
-    transition: opacity 1s ease-in-out;
+    transition: opacity 2s ease-in-out;
 }
 
 #hero .slide3 {
@@ -315,11 +315,11 @@ h2 .section-subtitle {
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/bakery_sweets.png') no-repeat center center/cover;
     opacity: 0;
-    animation: slideshow3 16s ease-in-out 1.5s infinite;
+    animation: slideshow3 16s ease-in-out 4.5s infinite;
     will-change: transform;
     transform-origin: center center;
     transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
-    transition: opacity 1s ease-in-out;
+    transition: opacity 2s ease-in-out;
 }
 
 #hero .slide4 {
@@ -331,11 +331,11 @@ h2 .section-subtitle {
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/02.about-us/about-us.png') no-repeat center center/cover;
     opacity: 0;
-    animation: slideshow4 16s ease-in-out 1.5s infinite;
+    animation: slideshow4 16s ease-in-out 4.5s infinite;
     will-change: transform;
     transform-origin: center center;
     transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
-    transition: opacity 1s ease-in-out;
+    transition: opacity 2s ease-in-out;
 }
 
 .hero-text {
@@ -356,7 +356,7 @@ h2 .section-subtitle {
     line-height: 1.4;
     text-shadow: none;
     letter-spacing: 1px;
-    transition: all 1s ease-in-out;
+    transition: all 2s ease-in-out;
 }
 
 /* ロード完了後のテキスト */

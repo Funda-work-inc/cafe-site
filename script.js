@@ -392,11 +392,11 @@ function initHeroParallax() {
 function initLoadingReveal() {
     const heroSection = document.querySelector('#hero');
     
-    // 1.5秒後にロード完了状態に切り替え
+    // 2.5秒後にロード完了状態に切り替え
     setTimeout(() => {
         heroSection.classList.add('loaded');
         console.log('🎨 ローディングリビール効果実行完了');
-    }, 1500);
+    }, 2500);
     
     console.log('✨ ローディングリビール効果初期化完了');
 }
