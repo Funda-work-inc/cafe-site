@@ -132,39 +132,16 @@ header {
 
 header .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    color: var(--text-color);
-    text-decoration: none;
-}
+/* ロゴ関連のスタイルは削除（ヘッダーから除去したため） */
 
-.logo-image {
-    height: 40px;
-    width: auto;
-    filter: brightness(0.2);
-    transition: filter 0.3s ease;
-}
-
-.logo:hover .logo-image {
-    filter: brightness(0.4);
-}
-
-.logo-text {
-    font-family: var(--font-serif);
-    font-size: 1.8rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-}
-
+/* デスクトップでは非表示（ハンバーガーメニューのみ） */
 nav ul {
     list-style: none;
-    display: flex;
+    display: none;
     gap: 2.5rem;
 }
 
@@ -192,7 +169,7 @@ nav a:hover::after {
 
 /* --- ハンバーガーメニュー --- */
 .hamburger {
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 4px;
     background: none;
@@ -920,12 +897,12 @@ a:hover::before, button:hover::before {
 
 /* タブレット・スマホ対応 (768px以下) */
 @media (max-width: 768px) {
-    /* デスクトップナビを完全非表示 */
+    /* デスクトップナビを完全非表示（既に非表示なので変更なし） */
     header nav ul {
         display: none !important;
     }
     
-    /* ハンバーガーメニューボタンを表示 */
+    /* ハンバーガーメニューボタンを表示（既に表示されているので変更なし） */
     .hamburger {
         display: flex !important;
         position: relative;
@@ -946,27 +923,10 @@ a:hover::before, button:hover::before {
     
     header .container {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
         padding: 1rem;
         max-width: 100%;
-    }
-    
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-        color: var(--text-color);
-    }
-    
-    .logo-image {
-        height: 32px;
-        width: auto;
-    }
-    
-    .logo-text {
-        font-size: 1.3rem;
-        font-weight: 500;
     }
     
     /* ハンバーガーメニュー内のナビ設定 */
@@ -1126,15 +1086,6 @@ a:hover::before, button:hover::before {
     /* ヘッダー */
     header {
         padding: 1rem 0;
-    }
-    
-    .logo-image {
-        height: 28px;
-        width: auto;
-    }
-    
-    .logo-text {
-        font-size: 1.2rem;
     }
     
     /* Hero */
