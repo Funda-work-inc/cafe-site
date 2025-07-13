@@ -348,6 +348,32 @@ h2 .section-subtitle {
     opacity: 1;
 }
 
+/* ヒーローサブタイトル */
+.hero-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 1rem auto 0;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    animation: luxuryFadeIn 2s ease-out 1.5s forwards;
+}
+
+/* ローディング状態のサブタイトル */
+#hero .hero-subtitle {
+    color: #666666;
+    text-shadow: none;
+    transition: all 2s ease-in-out;
+}
+
+/* ロード完了後のサブタイトル */
+#hero.loaded .hero-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
 #hero p {
     font-size: 1.1rem;
     color: rgba(255, 255, 255, 0.9);
