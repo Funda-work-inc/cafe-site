@@ -278,7 +278,7 @@ h2 .section-subtitle {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/restaurant_course.png') no-repeat center center/cover;
     opacity: 0;
     transform: scale(1.1);
-    animation: fadeInWithScale 1.5s ease-out 0.3s forwards, slideShow1 9s ease-in-out 1.5s infinite;
+    animation: fadeInWithScale 1.5s ease-out 0.3s forwards, slideShow1 12s ease-in-out 1.5s infinite;
 }
 
 #hero::after {
@@ -291,7 +291,7 @@ h2 .section-subtitle {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/french_toast.png') no-repeat center center/cover;
     opacity: 0;
     transform: scale(1.1);
-    animation: slideShow2 9s ease-in-out 4.5s infinite;
+    animation: slideShow2 12s ease-in-out 5.5s infinite;
 }
 
 #hero .slide3 {
@@ -304,7 +304,7 @@ h2 .section-subtitle {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/bakery_sweets.png') no-repeat center center/cover;
     opacity: 0;
     transform: scale(1.1);
-    animation: slideShow3 9s ease-in-out 7.5s infinite;
+    animation: slideShow3 12s ease-in-out 9.5s infinite;
 }
 
 .hero-text {
@@ -334,6 +334,54 @@ h2 .section-subtitle {
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
+/* --- スクロールインジケーター --- */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+}
+
+.scroll-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.scroll-arrow {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    animation: bounceArrow 2s ease-in-out infinite;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes bounceArrow {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
+}
+
 /* アニメーション定義 */
 @keyframes fadeInWithScale {
     from {
@@ -347,53 +395,53 @@ h2 .section-subtitle {
 }
 
 @keyframes slideShow1 {
-    0%, 30% {
+    0%, 33% {
         opacity: 1;
         transform: scale(1);
     }
-    30%, 40% {
+    33%, 42% {
         opacity: 0;
         transform: scale(1.05);
     }
-    40%, 100% {
+    42%, 100% {
         opacity: 0;
         transform: scale(1.05);
     }
 }
 
 @keyframes slideShow2 {
-    0%, 30% {
+    0%, 33% {
         opacity: 0;
         transform: scale(1.05);
     }
-    30%, 40% {
+    33%, 42% {
         opacity: 1;
         transform: scale(1);
     }
-    40%, 63% {
+    42%, 66% {
         opacity: 1;
         transform: scale(1);
     }
-    63%, 73% {
+    66%, 75% {
         opacity: 0;
         transform: scale(1.05);
     }
-    73%, 100% {
+    75%, 100% {
         opacity: 0;
         transform: scale(1.05);
     }
 }
 
 @keyframes slideShow3 {
-    0%, 63% {
+    0%, 66% {
         opacity: 0;
         transform: scale(1.05);
     }
-    63%, 73% {
+    66%, 75% {
         opacity: 1;
         transform: scale(1);
     }
-    73%, 97% {
+    75%, 97% {
         opacity: 1;
         transform: scale(1);
     }
@@ -950,6 +998,11 @@ a:hover::before, button:hover::before {
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     }
     
+    /* スクロールインジケーターをモバイルで表示 */
+    .scroll-indicator {
+        display: flex !important;
+    }
+    
     /* About セクション */
     .about-content {
         grid-template-columns: 1fr;
@@ -1029,6 +1082,12 @@ a:hover::before, button:hover::before {
         font-size: clamp(1.8rem, 6vw, 2.5rem);
         color: #ffffff;
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+    
+    /* スクロールインジケーターをスマホでも表示 */
+    .scroll-indicator {
+        display: flex !important;
+        bottom: 20px;
     }
     
     /* ナビゲーション */

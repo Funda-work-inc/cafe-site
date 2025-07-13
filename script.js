@@ -187,6 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 📱 ハンバーガーメニュー初期化（遅延実行）
     setTimeout(() => {
         initHamburgerMenu();
+        initScrollIndicator();
     }, 100);
     
     console.log('✨ Le Ciel étoilé Café - 動的モーション初期化完了！ ✨');
@@ -330,6 +331,27 @@ document.addEventListener('keydown', function(e) {
         closeLightbox();
     }
 });
+
+// 📱 スクロールインジケーター機能
+function initScrollIndicator() {
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+            // About セクションにスムーズスクロール
+            const aboutSection = document.querySelector('#about');
+            if (aboutSection) {
+                aboutSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+        
+        console.log('📱 スクロールインジケーター初期化完了');
+    } else {
+        console.log('⚠️ スクロールインジケーターが見つかりません');
+    }
+}
 
 // 🎨 追加のインタラクション効果
 document.addEventListener('click', function(e) {
