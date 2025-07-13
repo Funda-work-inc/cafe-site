@@ -276,9 +276,8 @@ h2 .section-subtitle {
     right: 0;
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/restaurant_course.png') no-repeat center center/cover;
-    opacity: 0;
-    transform: scale(1.1);
-    animation: fadeInWithScale 1.5s ease-out 0.3s forwards, slideShow1 12s ease-in-out 1.5s infinite;
+    opacity: 1;
+    animation: simpleSlideshow 15s ease-in-out infinite;
 }
 
 #hero::after {
@@ -290,8 +289,7 @@ h2 .section-subtitle {
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/french_toast.png') no-repeat center center/cover;
     opacity: 0;
-    transform: scale(1.1);
-    animation: slideShow2 12s ease-in-out 5.5s infinite;
+    animation: simpleSlideshow 15s ease-in-out 5s infinite;
 }
 
 #hero .slide3 {
@@ -303,8 +301,7 @@ h2 .section-subtitle {
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/bakery_sweets.png') no-repeat center center/cover;
     opacity: 0;
-    transform: scale(1.1);
-    animation: slideShow3 12s ease-in-out 9.5s infinite;
+    animation: simpleSlideshow 15s ease-in-out 10s infinite;
 }
 
 .hero-text {
@@ -382,72 +379,16 @@ h2 .section-subtitle {
     }
 }
 
-/* アニメーション定義 */
-@keyframes fadeInWithScale {
-    from {
-        opacity: 0;
-        transform: scale(1.1);
-    }
-    to {
+/* シンプルなスライドショーアニメーション */
+@keyframes simpleSlideshow {
+    0%, 30% {
         opacity: 1;
-        transform: scale(1);
     }
-}
-
-@keyframes slideShow1 {
-    0%, 33% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    33%, 42% {
+    35%, 65% {
         opacity: 0;
-        transform: scale(1.05);
     }
-    42%, 100% {
+    70%, 100% {
         opacity: 0;
-        transform: scale(1.05);
-    }
-}
-
-@keyframes slideShow2 {
-    0%, 33% {
-        opacity: 0;
-        transform: scale(1.05);
-    }
-    33%, 42% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    42%, 66% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    66%, 75% {
-        opacity: 0;
-        transform: scale(1.05);
-    }
-    75%, 100% {
-        opacity: 0;
-        transform: scale(1.05);
-    }
-}
-
-@keyframes slideShow3 {
-    0%, 66% {
-        opacity: 0;
-        transform: scale(1.05);
-    }
-    66%, 75% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    75%, 97% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    97%, 100% {
-        opacity: 0;
-        transform: scale(1.05);
     }
 }
 
