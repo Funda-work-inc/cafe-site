@@ -282,7 +282,7 @@ h2 .section-subtitle {
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/restaurant_course.png') no-repeat center center/cover;
     opacity: 1;
-    animation: slideshow1 12s ease-in-out infinite;
+    animation: slideshow1 16s ease-in-out infinite;
     will-change: transform;
     transform-origin: center center;
     transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
@@ -297,7 +297,7 @@ h2 .section-subtitle {
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/french_toast.png') no-repeat center center/cover;
     opacity: 0;
-    animation: slideshow2 12s ease-in-out infinite;
+    animation: slideshow2 16s ease-in-out infinite;
     will-change: transform;
     transform-origin: center center;
     transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
@@ -312,7 +312,22 @@ h2 .section-subtitle {
     bottom: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/01.FV/bakery_sweets.png') no-repeat center center/cover;
     opacity: 0;
-    animation: slideshow3 12s ease-in-out infinite;
+    animation: slideshow3 16s ease-in-out infinite;
+    will-change: transform;
+    transform-origin: center center;
+    transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
+}
+
+#hero .slide4 {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image/02.about-us/about-us.png') no-repeat center center/cover;
+    opacity: 0;
+    animation: slideshow4 16s ease-in-out infinite;
     will-change: transform;
     transform-origin: center center;
     transform: scale(var(--parallax-scale)) translateY(var(--parallax-translate));
@@ -393,48 +408,66 @@ h2 .section-subtitle {
     }
 }
 
-/* クロスフェードスライドショーアニメーション */
+/* 4枚クロスフェードスライドショーアニメーション */
 @keyframes slideshow1 {
-    0%, 29% {
+    0%, 22% {
         opacity: 1;
     }
-    29%, 33% {
+    22%, 25% {
         opacity: 0;
     }
-    33%, 100% {
+    25%, 100% {
         opacity: 0;
     }
 }
 
 @keyframes slideshow2 {
-    0%, 29% {
+    0%, 22% {
         opacity: 0;
     }
-    29%, 33% {
+    22%, 25% {
         opacity: 1;
     }
-    33%, 62% {
+    25%, 47% {
         opacity: 1;
     }
-    62%, 66% {
+    47%, 50% {
         opacity: 0;
     }
-    66%, 100% {
+    50%, 100% {
         opacity: 0;
     }
 }
 
 @keyframes slideshow3 {
-    0%, 62% {
+    0%, 47% {
         opacity: 0;
     }
-    62%, 66% {
+    47%, 50% {
         opacity: 1;
     }
-    66%, 96% {
+    50%, 72% {
         opacity: 1;
     }
-    96%, 100% {
+    72%, 75% {
+        opacity: 0;
+    }
+    75%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slideshow4 {
+    0%, 72% {
+        opacity: 0;
+    }
+    72%, 75% {
+        opacity: 1;
+    }
+    75%, 97% {
+        opacity: 1;
+    }
+    97%, 100% {
         opacity: 0;
     }
 }
