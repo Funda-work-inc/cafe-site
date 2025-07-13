@@ -366,8 +366,8 @@ function initHeroParallax() {
         const scrollPercent = Math.min(scrollTop / heroHeight, 0.4); // 上限を0.4に設定（半分に縮小）
         
         // スクロール量に応じて背景画像のみ拡大と移動
-        const scale = 1 + Math.min(scrollPercent * 0.1, 0.04); // 最大1.04倍で停止（半分に縮小）
-        const translateY = Math.min(scrollPercent * 15, 10); // 最大10px下移動（半分に縮小）
+        const scale = 1 + Math.min(scrollPercent * 0.2, 0.08); // 最大1.08倍で停止（2倍に増加）
+        const translateY = Math.min(scrollPercent * 30, 20); // 最大20px下移動（2倍に増加）
         
         // 背景画像要素のみに適用（疑似要素）
         heroSection.style.setProperty('--parallax-scale', scale);

@@ -395,13 +395,13 @@ h2 .section-subtitle {
 
 /* シンプルなスライドショーアニメーション */
 @keyframes simpleSlideshow {
-    0%, 30% {
+    0%, 31% {
         opacity: 1;
     }
-    35%, 65% {
+    33%, 64% {
         opacity: 0;
     }
-    70%, 100% {
+    66%, 100% {
         opacity: 0;
     }
 }
